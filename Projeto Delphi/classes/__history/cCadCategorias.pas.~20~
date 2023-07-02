@@ -1,0 +1,117 @@
+unit cCadCategorias;
+
+interface
+
+uses System.Classes,
+     Vcl.Controls,
+     Vcl.ExtCtrls,
+     Vcl.Dialogs,
+     ZAbstractConnection,
+     ZConnection,
+     ZAbstractRODataset,
+     ZAbstractDataset,
+     ZDataset;
+
+type
+  Tcategoria = class
+  private
+    ConexaoDB: TZConnection;
+    F_categoriaId:integer;
+    F_descricao:string;
+    function getCodigo: integer;
+    function getDescricao: string;
+    procedure setCodigo(const Value: integer);
+    procedure setDescricao(const Value: string);
+  public
+    constructor Create(aConexao:TZConnection);
+    destructor Destroy; override;
+    function Inserir:boolean;
+    function Atualizar:boolean;
+    function Apagar:boolean;
+    function Selecionar(id:integer):boolean;
+
+  published
+    property codigo:integer   read getCodigo    write setCodigo;
+    property descricao:string read getDescricao write setDescricao;
+
+
+  end;
+
+implementation
+
+{ Tcategoria }
+
+{$region 'Constructor e Destructor'}
+constructor Tcategoria.Create(aConexao:TZConnection);
+begin
+  ConexaoDB :=  aConexao;
+end;
+
+destructor Tcategoria.Destroy;
+begin
+
+  inherited;
+end;
+{$endregion}
+
+{$region 'CRUD'}
+function Tcategoria.Apagar: boolean;
+begin
+  ShowMessage('Apagado');
+  Result := true;
+end;
+
+function Tcategoria.Atualizar: boolean;
+begin
+  ShowMessage('Atualizado');
+  Result := true;
+end;
+
+function Tcategoria.Inserir: boolean;
+var
+  QryGravar:TZQuery;
+begin
+  //ShowMessage('Gravado');
+  //Result := false;
+  //ShowMessage(self.F_descricao); FORMA DE TESTAR SE A CLASSE ESTÁ FUNCIONANDO
+  try
+    QryGravar := TZQuery.Create(nil);
+    QryGravar.Connection := ConexaoDB;
+  finally
+    if Assigned(QryGravar) then
+      FreeAndNil(QryGravar)
+
+  end;
+end;
+
+function Tcategoria.Selecionar(id: integer): boolean;
+begin
+  Result := true;
+end;
+{$endregion}
+
+{$region 'Gets'}
+function Tcategoria.getCodigo: integer;
+begin
+  Result := Self.F_categoriaId;
+end;
+
+function Tcategoria.getDescricao: string;
+begin
+  Result := Self.F_descricao;
+end;
+{$endregion}
+
+{$region 'Sets'}
+procedure Tcategoria.setCodigo(const Value: integer);
+begin
+  Self.F_categoriaId := Value;
+end;
+
+procedure Tcategoria.setDescricao(const Value: string);
+begin
+  Self.F_descricao := Value;
+end;
+{$endregion}
+
+end.

@@ -1,0 +1,87 @@
+unit uPrincipal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus, uDTMConexao;
+
+type
+  TfrmPrincipal = class(TForm)
+    mainPrincipal: TMainMenu;
+    CADASTRO1: TMenuItem;
+    MOVIMENTAO1: TMenuItem;
+    RELATRORIO1: TMenuItem;
+    Cliente1: TMenuItem;
+    N1: TMenuItem;
+    Categoria1: TMenuItem;
+    N2: TMenuItem;
+    Produto1: TMenuItem;
+    mnuFechar: TMenuItem;
+    Vendas1: TMenuItem;
+    Clientes1: TMenuItem;
+    N3: TMenuItem;
+    Produtos1: TMenuItem;
+    N4: TMenuItem;
+    VendasPorData1: TMenuItem;
+    procedure mnuFecharClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure Categoria1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmPrincipal: TfrmPrincipal;
+
+implementation
+
+{$R *.dfm}
+
+procedure TfrmPrincipal.Categoria1Click(Sender: TObject);
+begin
+  frmCadCategorias := TfrmCadCategorias.Create(Self);
+  frmCadCategorias.ShowModal;
+  frmCadCategorias.Release;
+end;
+
+procedure TfrmPrincipal.FormCreate(Sender: TObject);
+begin
+{
+  dtmPrincipal := TdtmPrincipal.Create(Self);
+  dtmPrincipal.ConexaoDB.SQLHourGlass := True;
+  dtmPrincipal.ConexaoDB.Protocol := 'mssql';
+  dtmPrincipal.ConexaoDB.LibraryLocation := 'C:\workspace\Estudos-C-VB6-e-Delphi\Delphi\ntwdblib.dll';
+  dtmPrincipal.ConexaoDB.HostName := '.\SERVERCURSO';
+  dtmPrincipal.ConexaoDB.Port := 1433;
+  dtmPrincipal.ConexaoDB.User := 'sa';
+  dtmPrincipal.ConexaoDB.Password := 'S@geBr.2014';
+  dtmPrincipal.ConexaoDB.Database := 'vendas';
+  dtmPrincipal.ConexaoDB.Connected := True;
+ }
+
+  dtmPrincipal := TdtmPrincipal.Create(Self);
+  with dtmPrincipal.ConexaoDB do
+  begin
+    SQLHourGlass := True;
+    Protocol := 'mssql';
+    LibraryLocation := 'C:\workspace\Estudos-C-VB6-e-Delphi\Delphi\ntwdblib.dll';
+    HostName := '.\SERVERCURSO';
+    Port := 1433;
+    User := 'sa';
+    Password := 'S@geBr.2014';
+    Database := 'vendas';
+    Connected := True;
+  end;
+
+end;
+
+procedure TfrmPrincipal.mnuFecharClick(Sender: TObject);
+begin
+  //Close;
+  Application.Terminate;
+end;
+
+end.

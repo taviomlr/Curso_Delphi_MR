@@ -1,0 +1,72 @@
+unit uCadClientes;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, uTelaHeranca, Data.DB,
+  ZAbstractRODataset, ZAbstractDataset, ZDataset, Vcl.DBCtrls, Vcl.Grids,
+  Vcl.DBGrids, Vcl.StdCtrls, Vcl.Buttons, Vcl.Mask, Vcl.ExtCtrls, Vcl.ComCtrls,
+  RxToolEdit, cCadClientes, uEnum;
+
+type
+  TfrmCadClientes = class(TfrmTelaHeranca)
+    edtCategoriaId: TLabeledEdit;
+    edtDescricao: TLabeledEdit;
+    Label1: TLabel;
+    edtEndereco: TLabeledEdit;
+    edtBairro: TLabeledEdit;
+    edtCidade: TLabeledEdit;
+    Label2: TLabel;
+    Label3: TLabel;
+    edtCEP: TMaskEdit;
+    edtEmail: TLabeledEdit;
+    edtDataNascimento: TDateEdit;
+    Label4: TLabel;
+    edtTelefone: TMaskEdit;
+    qryListagemclienteId: TIntegerField;
+    qryListagemnome: TWideStringField;
+    qryListagemendereco: TWideStringField;
+    qryListagemcidade: TWideStringField;
+    qryListagembairro: TWideStringField;
+    qryListagemestado: TWideStringField;
+    qryListagemcep: TWideStringField;
+    qryListagemtelefone: TWideStringField;
+    qryListagememail: TWideStringField;
+    qryListagemdataNascimento: TDateTimeField;
+  private
+    { Private declarations }
+    oCliente:Tcliente;
+    function Apagar:boolean; override;
+    function Gravar(EstadoDoCadastro:TEstadoDoCadastro):boolean; override;
+  public
+    { Public declarations }
+  end;
+
+var
+  frmCadClientes: TfrmCadClientes;
+
+implementation
+
+{$R *.dfm}
+
+
+{ TfrmCadClientes }
+
+
+{$region 'Override'}
+function TfrmCadClientes.Apagar: boolean;
+begin
+  if oCliente.Selecionar(qryListagem.FieldByName('clienteId').AsInteger) then
+    begin
+      Result := oCliente.Apagar;
+    end;
+end;
+
+function TfrmCadClientes.Gravar(EstadoDoCadastro: TEstadoDoCadastro): boolean;
+begin
+
+end;
+{$endregion}
+
+end.

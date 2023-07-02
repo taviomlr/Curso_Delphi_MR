@@ -1,0 +1,50 @@
+unit uCadProdutos;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, uTelaHeranca, Data.DB,
+  ZAbstractRODataset, ZAbstractDataset, ZDataset, Vcl.DBCtrls, Vcl.Grids,
+  Vcl.DBGrids, Vcl.StdCtrls, Vcl.Buttons, Vcl.Mask, Vcl.ExtCtrls, Vcl.ComCtrls,
+  RxToolEdit, RxCurrEdit, cCadProdutos, uEnum;
+
+type
+  TfrmCadProdutos = class(TfrmTelaHeranca)
+    qryListagemprodutoId: TIntegerField;
+    qryListagemnome: TWideStringField;
+    qryListagemdescricao: TWideStringField;
+    qryListagemvalor: TFloatField;
+    qryListagemquantidade: TFloatField;
+    qryListagemcategoriaId: TIntegerField;
+    qryListagemDescricaCategoria: TWideStringField;
+    edtNome: TLabeledEdit;
+    edtProdutoId: TLabeledEdit;
+    edtDescricao: TMemo;
+    Label1: TLabel;
+    edtValor: TCurrencyEdit;
+    edtQuantidade: TCurrencyEdit;
+    Label2: TLabel;
+    Label3: TLabel;
+    lkpCategoria: TDBLookupComboBox;
+    QryCategoria: TZQuery;
+    dtsCategoria: TDataSource;
+    QryCategoriacategoriaId: TIntegerField;
+    QryCategoriadescricao: TWideStringField;
+  private
+    { Private declarations }
+    oProduto:Tproduto;
+    function Apagar:boolean; override;
+    function Gravar(EstadoDoCadastro:TEstadoDoCadastro):boolean; override;
+  public
+    { Public declarations }
+  end;
+
+var
+  frmCadProdutos: TfrmCadProdutos;
+
+implementation
+
+{$R *.dfm}
+
+end.

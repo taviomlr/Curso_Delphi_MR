@@ -1,0 +1,202 @@
+unit cCadProdutos;
+
+interface
+
+uses System.Classes,
+     Vcl.Controls,
+     Vcl.ExtCtrls,
+     Vcl.Dialogs,
+     ZAbstractConnection,
+     ZConnection,
+     ZAbstractRODataset,
+     ZAbstractDataset,
+     ZDataset,
+     SysUtils;
+
+type
+  Tproduto = class
+  private
+    ConexaoDB: TZConnection;
+    F_produtoId:integer;
+    F_nome:string;
+    F_descricao:string;
+    F_valor:Double;
+    F_quantidade:Double;
+    F_categoriaId:Integer;
+  public
+    constructor Create(aConexao:TZConnection);
+    destructor Destroy; override;
+    function Inserir:boolean;
+    function Atualizar:boolean;
+    function Apagar:boolean;
+    function Selecionar(id:integer):boolean;
+
+  published
+    property codigo        :integer   read F_produtoId     write F_produtoId;
+    property nome          :string    read F_nome          write F_nome;
+    property descricao     :string    read F_descricao     write F_descricao;
+    property valor         :Double    read F_valor         write F_valor;
+    property quantidade    :Double    read F_quantidade    write F_quantidade;
+    property categoriaId   :Integer   read F_categoriaId   write F_categoriaId;
+  end;
+
+implementation
+
+{$region 'Constructor e Destructor'}
+constructor Tproduto.Create(aConexao:TZConnection);
+begin
+  ConexaoDB :=  aConexao;
+end;
+
+destructor Tproduto.Destroy;
+begin
+
+  inherited;
+end;
+{$endregion}
+
+
+{$region 'CRUD'}
+function Tproduto.Apagar: boolean;
+var
+  Qry:TZQuery;
+begin
+  if MessageDlg('Deseja apagar o registro: '+#13+#13+
+                'Código: '+IntToStr(F_produtoId)+#13+
+                'Descrição: '+F_nome,TMsgDlgType.mtConfirmation, [TMsgDlgBtn.mbYes, TMsgDlgBtn.mbNo],0)=mrNo then
+  begin
+    Result := false;
+    Abort;
+  end;
+
+  try
+    Result := true;
+    Qry := TZQuery.Create(nil);
+    Qry.Connection := ConexaoDB;
+    Qry.SQL.Clear;
+    Qry.SQL.Add('DELETE FROM produtos '+
+                ' WHERE produtoId = :produtoId ');
+    Qry.ParamByName('produtoId').AsInteger := F_produtoId;
+    try
+      Qry.ExecSQL;
+    except
+      Result := false;
+    end;
+
+  finally
+    if Assigned(Qry) then
+      FreeAndNil(Qry);
+  end;
+end;
+
+function Tproduto.Atualizar: boolean;
+var
+  Qry:TZQuery;
+begin
+  try
+    Result := true;
+    Qry := TZQuery.Create(nil);
+    Qry.Connection := ConexaoDB;
+    Qry.SQL.Clear;
+    Qry.SQL.Add('UPDATE  produtos '+
+                '   SET  nome           = :nome '+
+                '       ,descricao      = :descricao '+
+                '       ,valor          = :valor '+
+                '       ,quantidade     = :quantidade '+
+                '       ,categoriaId    = :categoriaId '+
+                ' WHERE produtoId = :produtoId ');
+    Qry.ParamByName('produtoId').AsInteger := self.F_produtoId;
+    Qry.ParamByName('nome').AsString := self.F_nome;
+    Qry.ParamByName('descricao').AsString := self.F_descricao;
+    Qry.ParamByName('valor').AsFloat := self.valor;
+    Qry.ParamByName('quantidade').AsFloat := self.F_quantidade;
+    Qry.ParamByName('categoriaId').AsInteger := self.F_categoriaId;
+    try
+      Qry.ExecSQL;
+    except
+      Result := false;
+    end;
+
+  finally
+    if Assigned(Qry) then
+      FreeAndNil(Qry);
+  end;
+end;
+
+function Tproduto.Inserir: boolean;
+var
+  Qry:TZQuery;
+begin
+  try
+    Result := true;
+    Qry := TZQuery.Create(nil);
+    Qry.Connection := ConexaoDB;
+    Qry.SQL.Clear;
+    Qry.SQL.Add('INSERT INTO produtos (nome '+
+                '                     ,descricao '+
+                '                     ,valor '+
+                '                     ,quantidade '+
+                '                     ,categoriaId) '+
+                '     VALUES          (:nome '+
+          '                           ,:descricao '+
+          '                           ,:valor '+
+          '                           ,:quantidade '+
+          '                           ,:categoriaId)');
+
+    Qry.ParamByName('nome').AsString := self.F_nome;
+    Qry.ParamByName('descricao').AsString := self.F_descricao;
+    Qry.ParamByName('valor').AsFloat := self.valor;
+    Qry.ParamByName('quantidade').AsFloat := self.F_quantidade;
+    Qry.ParamByName('categoriaId').AsInteger := self.F_categoriaId;
+    try
+      Qry.ExecSQL;
+    except
+      Result := false;
+    end;
+
+  finally
+    if Assigned(Qry) then
+      FreeAndNil(Qry);
+
+  end;
+end;
+
+function Tproduto.Selecionar(id: integer): boolean;
+var
+  Qry:TZQuery;
+begin
+  try
+    Result := true;
+    Qry := TZQuery.Create(nil);
+    Qry.Connection := ConexaoDB;
+    Qry.SQL.Clear;
+    Qry.SQL.Add('SELECT produtoId '+
+'                       ,nome '+
+'                       ,descricao '+
+'                       ,valor '+
+'                       ,quantidade '+
+'                       ,categoriaId '+
+'                  FROM produtos '+
+'                 WHERE produtoId = :produtoId ');
+
+    Qry.ParamByName('produtoId').AsInteger := id;
+    try
+      Qry.Open;
+      Self.F_produtoId := Qry.FieldByName('produtoId').AsInteger;
+      Self.F_nome := Qry.FieldByName('nome').AsString;
+      Self.F_descricao:= Qry.FieldByName('descricao').AsString;
+      Self.F_valor := Qry.FieldByName('valor').AsFloat;
+      Self.F_quantidade := Qry.FieldByName('quantidade').AsFloat;
+      Self.F_categoriaId := Qry.FieldByName('categoriaId').AsInteger;
+    except
+      Result := false;
+    end;
+  finally
+    if Assigned(Qry) then
+      FreeAndNil(Qry);
+  end;
+
+end;
+{$endregion}
+
+end.

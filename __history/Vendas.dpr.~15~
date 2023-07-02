@@ -1,0 +1,23 @@
+program Vendas;
+
+uses
+  Vcl.Forms,
+  uPrincipal in 'uPrincipal.pas' {frmPrincipal},
+  uDTMConexao in 'Projeto Delphi\datamodule\uDTMConexao.pas' {dtmPrincipal: TDataModule},
+  uTelaHeranca in 'Projeto Delphi\heranca\uTelaHeranca.pas' {frmTelaHeranca},
+  uCadCategorias in 'Projeto Delphi\Cadastros\uCadCategorias.pas' {frmCadCategorias},
+  Enter in 'Projeto Delphi\terceiros\Enter.pas',
+  uEnum in 'Projeto Delphi\heranca\uEnum.pas',
+  cCadCategorias in 'Projeto Delphi\classes\cCadCategorias.pas',
+  uCadClientes in 'Projeto Delphi\Cadastros\uCadClientes.pas' {frmCadClientes},
+  cCadClientes in 'Projeto Delphi\classes\cCadClientes.pas';
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TfrmPrincipal, frmPrincipal);
+  Application.CreateForm(TfrmCadClientes, frmCadClientes);
+  Application.Run;
+end.

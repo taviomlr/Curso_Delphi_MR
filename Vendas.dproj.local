@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2023/04/24 07:50:18.000.467,=C:\Users\TÁVIO\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/04/30 21:48:50.000.021,=C:\Users\TÁVIO\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/05/01 09:53:14.000.485,=C:\Users\TÁVIO\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/05/01 09:56:49.000.515,C:\workspace\Estudos-C-VB6-e-Delphi\Delphi\uPrincipal.dfm=C:\Users\TÁVIO\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2023/05/01 09:56:49.000.515,C:\workspace\Estudos-C-VB6-e-Delphi\Delphi\uPrincipal.pas=C:\Users\TÁVIO\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/05/01 09:57:16.000.716,C:\workspace\Estudos-C-VB6-e-Delphi\Delphi\Vendas.dproj=C:\Users\TÁVIO\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2023/05/01 10:18:55.000.672,=C:\workspace\Estudos-C-VB6-e-Delphi\Delphi\Unit1.pas</Transaction>
+    <Transaction>2023/05/01 10:20:50.000.867,C:\workspace\Estudos-C-VB6-e-Delphi\Delphi\Unit1.dfm=C:\workspace\Estudos-C-VB6-e-Delphi\Delphi\Projeto Delphi\datamodule\uDTMConexao.dfm</Transaction>
+    <Transaction>2023/05/01 10:20:50.000.867,C:\workspace\Estudos-C-VB6-e-Delphi\Delphi\Unit1.pas=C:\workspace\Estudos-C-VB6-e-Delphi\Delphi\Projeto Delphi\datamodule\uDTMConexao.pas</Transaction>
+    <Transaction>2023/05/02 19:55:43.000.263,=C:\workspace\Estudos-C-VB6-e-Delphi\Delphi\Unit1.pas</Transaction>
+    <Transaction>2023/05/02 19:57:07.000.421,C:\workspace\Estudos-C-VB6-e-Delphi\Delphi\Unit1.pas=C:\workspace\Estudos-C-VB6-e-Delphi\Delphi\Projeto Delphi\heranca\uTelaHeranca.pas</Transaction>
+    <Transaction>2023/05/02 19:57:07.000.421,C:\workspace\Estudos-C-VB6-e-Delphi\Delphi\Unit1.dfm=C:\workspace\Estudos-C-VB6-e-Delphi\Delphi\Projeto Delphi\heranca\uTelaHeranca.dfm</Transaction>
+    <Transaction>2023/05/02 21:10:09.000.177,=C:\workspace\Estudos-C-VB6-e-Delphi\Delphi\Unit1.pas</Transaction>
+    <Transaction>2023/05/02 21:16:59.000.484,C:\workspace\Estudos-C-VB6-e-Delphi\Delphi\Unit1.pas=C:\workspace\Estudos-C-VB6-e-Delphi\Delphi\Projeto Delphi\Cadastros\uCadCategorias.pas</Transaction>
+    <Transaction>2023/05/02 21:16:59.000.484,C:\workspace\Estudos-C-VB6-e-Delphi\Delphi\Unit1.dfm=C:\workspace\Estudos-C-VB6-e-Delphi\Delphi\Projeto Delphi\Cadastros\uCadCategorias.dfm</Transaction>
+    <Transaction>2023/05/03 07:16:36.000.339,=C:\workspace\Estudos-C-VB6-e-Delphi\Delphi\Projeto Delphi\terceiros\Enter.pas</Transaction>
+    <Transaction>2023/05/04 17:08:02.000.115,=C:\workspace\Estudos-C-VB6-e-Delphi\Delphi\Unit1.pas</Transaction>
+    <Transaction>2023/05/04 17:10:03.000.908,C:\workspace\Estudos-C-VB6-e-Delphi\Delphi\Unit1.pas=C:\workspace\Estudos-C-VB6-e-Delphi\Delphi\Projeto Delphi\heranca\uEnum.pas</Transaction>
+    <Transaction>2023/06/12 16:32:07.000.869,=C:\workspace\Estudos-C-VB6-e-Delphi\Delphi\Unit1.pas</Transaction>
+    <Transaction>2023/06/12 16:33:00.000.586,C:\workspace\Estudos-C-VB6-e-Delphi\Delphi\Projeto Delphi\classes\cCadCategorias.pas=C:\workspace\Estudos-C-VB6-e-Delphi\Delphi\Unit1.pas</Transaction>
+    <Transaction>2023/06/13 16:22:01.000.722,=C:\workspace\Estudos-C-VB6-e-Delphi\Delphi\Unit1.pas</Transaction>
+    <Transaction>2023/06/13 16:22:59.000.085,C:\workspace\Estudos-C-VB6-e-Delphi\Delphi\Projeto Delphi\Cadastros\uCadClientes.dfm=C:\workspace\Estudos-C-VB6-e-Delphi\Delphi\Unit1.dfm</Transaction>
+    <Transaction>2023/06/13 16:22:59.000.085,C:\workspace\Estudos-C-VB6-e-Delphi\Delphi\Projeto Delphi\Cadastros\uCadClientes.pas=C:\workspace\Estudos-C-VB6-e-Delphi\Delphi\Unit1.pas</Transaction>
+    <Transaction>2023/06/14 07:18:13.000.435,=C:\workspace\Estudos-C-VB6-e-Delphi\Delphi\Unit1.pas</Transaction>
+    <Transaction>2023/06/14 07:18:53.000.413,C:\workspace\Estudos-C-VB6-e-Delphi\Delphi\Projeto Delphi\classes\cCadClientes.pas=C:\workspace\Estudos-C-VB6-e-Delphi\Delphi\Unit1.pas</Transaction>
+    <Transaction>2023/06/20 07:07:28.000.808,=C:\workspace\Estudos-C-VB6-e-Delphi\Delphi\Unit1.pas</Transaction>
+    <Transaction>2023/06/20 07:08:01.000.628,C:\workspace\Estudos-C-VB6-e-Delphi\Delphi\Unit1.pas=C:\workspace\Estudos-C-VB6-e-Delphi\Delphi\Projeto Delphi\classes\cCadProdutos.pas</Transaction>
+    <Transaction>2023/06/20 07:11:51.000.446,=C:\workspace\Estudos-C-VB6-e-Delphi\Delphi\Unit1.pas</Transaction>
+    <Transaction>2023/06/20 07:12:58.000.659,C:\workspace\Estudos-C-VB6-e-Delphi\Delphi\Unit1.pas=C:\workspace\Estudos-C-VB6-e-Delphi\Delphi\Projeto Delphi\Cadastros\uCadProdutos.pas</Transaction>
+    <Transaction>2023/06/20 07:12:58.000.659,C:\workspace\Estudos-C-VB6-e-Delphi\Delphi\Unit1.dfm=C:\workspace\Estudos-C-VB6-e-Delphi\Delphi\Projeto Delphi\Cadastros\uCadProdutos.dfm</Transaction>
+  </Transactions>
+</BorlandProject>
